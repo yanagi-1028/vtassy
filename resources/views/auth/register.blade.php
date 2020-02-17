@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 
 @section('content')
 <div class="container">
@@ -24,10 +24,38 @@
                                 @enderror
                             </div>
                         </div>
+                        <div class="form-group row">
+                          <label for="gender" class="col-md-4 col-form-label text-md-right">Gender</label>
 
+                          <div class="col-md-6" style="padding-top: 8px">
+                            <input id="gender-m" type="radio" name="gender" value="male">
+                            <label for="gender-m">Male</label>
+                            <input id="gender-f" type="radio" name="gender" value="female">
+                            <label for="gender-f">Female</label>
+
+                            @if ($errors->has('gender'))
+                             <span class="invalid-feedback">
+                             <strong>{{ $errors->first('gender') }}</strong>
+                             </span>
+                            @endif
+                          </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="workplace" class="col-md-4 col-form-label text-md-right">{{ __('WorkPlace') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="workplace" type="text" class="form-control @error('workplace') is-invalid @enderror" name="workplace" value="{{ old('workplace') }}" required autocomplete="workplace" autofocus>
+
+                                @error('name')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
                         <div class="form-group row">
                             <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
-
+                
                             <div class="col-md-6">
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
 

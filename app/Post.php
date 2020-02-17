@@ -13,4 +13,8 @@ class Post extends Model
      'title' => 'required',
      'content' => 'required',
       );
+  
+  public function comments(){
+      return $this->hasMany('App\Comment');
+  }
 }

@@ -9,27 +9,18 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="caption mx-auto">
-                                <div class="image">
-                                    @if ($headline->image_path)
-                                        <img src="{{ asset('storage/image/' . $headline->image_path) }}">
-                                    @endif
-                                </div>
                                 <div class="title p-2">
                                     <h1>{{ str_limit($headline->title, 70) }}</h1>
                                 </div>
                             </div>
                         </div>
-                        <!-- <li><a href="/posts/{{ $post->id }}">{{ $post->title }}</a></li> -->
-//url()
-<!--<li><a href="{{ url('/posts', $post->id) }}">{{ $post->title }}</a></li>-->
-
-//action() コントローラーとメソッドを指定する記述　(Postsコントローラのshowメソッド)
-<li><a href="{{ action('PostsController@show', $post->id) }}">{{ $post->title }}</a></li>
-
-
                         <div class="col-md-6">
-                            <p class="body mx-auto">{{ str_limit($headline->content, 650) }}</p>
+                            <p class="body mx-auto">{{ str_limit($headline->content, 50) }}</p>
                         </div>
+                        @if ($headline->image_path)
+                                        <img src="{{ asset('storage/image/'. $headline->image_path) }}">
+                        @endif
+                        <li><a href="{{ action('PostController@show', $headline->id) }}">詳細</a></li> 
                     </div>
                 </div>
             </div>
@@ -53,6 +44,7 @@
                                     {{ str_limit($post->content, 1500) }}
                                 </div>
                             </div>
+                            <li><a href="{{ action('PostController@show', $post->id) }}">詳細</a></li> 
                             <div class="image col-md-6 text-right mt-4">
                                 @if ($post->image_path)
                                     <img src="{{ asset('storage/image/' . $post->image_path) }}">

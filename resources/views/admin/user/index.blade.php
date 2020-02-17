@@ -19,16 +19,16 @@
                                 <th width="20%">名前</th>
                                 <th width="20%">性別</th>
                                 <th width="20%">勤務地</th>
-                                <th width="50%">メールアドレス</th>
+                                <th width="50%">emali</th>
                             </tr>
                             <tbody>
-                            @foreach($posts as $profile)
+                            @foreach($posts as $user)
                                 <tr>
-                                    <th>{{ $profile->id }}</th>
-                                    <td>{{ $profile->name}}</td>
-                                    <td>{{ $profile->gender}}</td>
-                                    <td>{{ $profile->workplace}}</td>
-                                    <td>{{ $profile->mailaddress}}</td>
+                                    <th>{{ $user->id }}</th>
+                                    <td>{{ $user->name}}</td>
+                                    <td>{{ $user->gender}}</td>
+                                    <td>{{ $user->workplace}}</td>
+                                    <td>{{ $user->email}}</td>
                                 </tr>
                             @endforeach
                             </tbody>

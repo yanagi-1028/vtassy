@@ -15,7 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::group(['prefix' => 'admin'], function(){
-    Route::get('profile', 'Admin\ProfileController@index')->middleware('auth');
+    Route::get('/user/index', 'Admin\UserController@index')->middleware('auth');
 });
 
 Route::get('/home', 'HomeController@index')->name('home');
@@ -30,6 +30,7 @@ Route::get('/post/front', 'PostController@index');
 
 Route::get('/post/{id}', 'PostController@show');
 
+Route::post('post/{post}/comments', 'CommentController@store');
 
 Auth::routes();
 
