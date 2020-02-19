@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
 Route::group(['prefix' => 'admin'], function(){
     Route::get('/user/index', 'Admin\UserController@index')->middleware('auth');
@@ -32,6 +32,7 @@ Route::get('/post/{id}', 'PostController@show');
 
 Route::post('post/{post}/comments', 'CommentController@store');
 
+Route::get('/', 'EntranceController@enter');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

@@ -1,4 +1,4 @@
- @extends('layouts.admin')
+ @extends('layouts.front')
     
     @section('title', '投稿作成')
     
