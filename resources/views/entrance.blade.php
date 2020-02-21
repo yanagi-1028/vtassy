@@ -79,7 +79,7 @@
                 <div class="links">
                     <a href="{{ action('PostController@index') }}">投稿一覧</a>
                     <a href="{{ route('login') }}">ログイン</a>
-                    <a href="{{ action('PostController@add') }}">新規登録</a>
+                    <a href="{{ route('register') }}">新規登録</a>
                     
                 </div>
             </div>

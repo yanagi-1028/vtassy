@@ -1,5 +1,7 @@
 @extends('layouts.admin')
 
+@section('title', '新規登録')
+
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
@@ -12,7 +14,7 @@
                         @csrf
 
                         <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
+                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('氏名') }}</label>
 
                             <div class="col-md-6">
                                 <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
@@ -25,13 +27,13 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                          <label for="gender" class="col-md-4 col-form-label text-md-right">Gender</label>
+                          <label for="gender" class="col-md-4 col-form-label text-md-right">性別</label>
 
                           <div class="col-md-6" style="padding-top: 8px">
                             <input id="gender-m" type="radio" name="gender" value="male">
-                            <label for="gender-m">Male</label>
+                            <label for="gender-m">男性</label>
                             <input id="gender-f" type="radio" name="gender" value="female">
-                            <label for="gender-f">Female</label>
+                            <label for="gender-f">女性</label>
 
                             @if ($errors->has('gender'))
                              <span class="invalid-feedback">
@@ -41,7 +43,7 @@
                           </div>
                         </div>
                         <div class="form-group row">
-                            <label for="workplace" class="col-md-4 col-form-label text-md-right">{{ __('WorkPlace') }}</label>
+                            <label for="workplace" class="col-md-4 col-form-label text-md-right">{{ __('勤務地') }}</label>
 
                             <div class="col-md-6">
                                 <input id="workplace" type="text" class="form-control @error('workplace') is-invalid @enderror" name="workplace" value="{{ old('workplace') }}" required autocomplete="workplace" autofocus>
@@ -54,7 +56,7 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('メールアドレス') }}</label>
                 
                             <div class="col-md-6">
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
@@ -68,7 +70,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
+                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('パスワード') }}</label>
 
                             <div class="col-md-6">
                                 <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
@@ -82,7 +84,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
+                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('再度パスワードを入力してください') }}</label>
 
                             <div class="col-md-6">
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">

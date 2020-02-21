@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Post;
 use App\Comment;
+use App\User;
 use App\Http\Controllers\Controller;
 
 class CommentController extends Controller
@@ -17,7 +18,9 @@ class CommentController extends Controller
             ]);
         $comment = new Comment(['body' => $request->body]);
         $post = Post::findOrFail($postId);
+        
         $post->comments()->save($comment);
+        
         
         return redirect()->action('PostController@show',$post->id);
     }
