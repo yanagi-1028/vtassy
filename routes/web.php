@@ -26,13 +26,21 @@ Route::post('/profile', 'ProfileController@create');
 Route::get('/post/create', 'PostController@add');
 Route::post('/post/create', 'PostController@create');
 
+Route::get('post/edit', 'PostController@edit');
+Route::post('post/update', 'PostController@update');
+
 Route::get('/post/front', 'PostController@index');
 
 Route::get('/post/{id}', 'PostController@show');
 
 Route::post('post/{post}/comments', 'CommentController@store');
 
+Route::resource('/users', 'UserController', ['only' => ['show']]);
+
+Route::get('post/delete', 'PostController@delete');
+
 Route::get('/', 'EntranceController@enter');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

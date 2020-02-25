@@ -19,10 +19,18 @@
                         <div class="col-md-6">
                             <p class="body mx-auto">{{ str_limit($headline->content, 50) }}</p>
                         </div>
+                      　<div>
+                            <a href="{{ route('users.show', $headline->user_id) }}">
+                            　　 {{ __('ユーザー様の投稿一覧')}}
+                        　　</a>
+                    　　</div>
+
                         @if ($headline->image_path)
                                         <img src="{{ asset('storage/image/'. $headline->image_path) }}">
                         @endif
-                        <li><a href="{{ action('PostController@show', $headline->id) }}">詳細</a></li> 
+                        <div>
+                        <a href="{{ action('PostController@show', $headline->id) }}">詳細</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -45,18 +53,32 @@
                                 <div class="content mt-3">
                                     {{ str_limit($post->content, 1500) }}
                                 </div>
+                                
                             </div>
-                            <li><a href="{{ action('PostController@show', $post->id) }}">詳細</a></li> 
+                            <div>
+                              <a href="{{ action('PostController@show', $post->id) }}">詳細</a>
+                            </div>
                             <div class="image col-md-6 text-right mt-4">
                                 @if ($post->image_path)
                                     <img src="{{ asset('storage/image/' . $post->image_path) }}">
                                 @endif
                             </div>
+                            <div>
+                                <a href="{{ route('users.show', $post->user_id) }}">
+                                      
+                                        {{ __('ユーザー様の投稿一覧')}}
+                                 </a>
+                            </div>
+
                         </div>
                     </div>
                     <hr color="#c0c0c0">
                 @endforeach
             </div>
+        </div>
+      
+        <div class="d-flex justify-content-center">
+        {{ $posts->links() }}
         </div>
     </div>
     </div>

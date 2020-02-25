@@ -1,4 +1,4 @@
- @extends('layouts.front')
+ @extends('layouts.admin')
     
     @section('title', '投稿作成')
     
@@ -9,7 +9,7 @@
 　　            <h2>症例投稿</h2>
 　　            <form action="{{ action('PostController@create') }}" method="post" enctype="multipart/form-data">
                     <div class="form-group ">
-                        <label class="col-md-2">タイトル</label></label>
+                        <label class="col-md-2">タイトル</label>
                         <div class="col-md-10">
                             <input type="text" class="form-control"　size="10" name="title" value="{{ old('title') }}">
                         </div>
